@@ -19,6 +19,15 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Good");
+        
+        if (other.tag == "Player")
+        {
+            other.gameObject.SetActive(false);
+Debug.Log("Level completed");
+
+        }
+        
     }
+
+  
 }

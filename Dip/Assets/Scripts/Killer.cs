@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
-public class Target : MonoBehaviour
+public class Killer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {

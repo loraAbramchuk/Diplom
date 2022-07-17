@@ -2,29 +2,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int thrustForse;
+    [Space] [SerializeField] private Rigidbody2D body2D;
+    [SerializeField] private SpringJoint2D springJoint2D;
 
-    private SpringJoint2D currentSpringJoint;
-    private Rigidbody2D _rigidbody2D;
 
-    void Start()
+    [Space] [SerializeField] private int force;
+
+
+    private void Start()
     {
-        currentSpringJoint = GetComponent<SpringJoint2D>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _rigidbody2D.AddForce(Vector2.left * thrustForse);
+        body2D.AddForce(Vector2.left * force);
     }
 
-    void Update()
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            currentSpringJoint.enabled = false;
-        }
-
-        if (transform.position.y < -50)
-        {
-            gameObject.SetActive(false);
-            Debug.Log("Fall");
+            springJoint2D.enabled = false;
         }
     }
 }

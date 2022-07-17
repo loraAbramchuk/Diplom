@@ -1,10 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Collider2D))]
 public class Target : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private Trigger2D trigger2D;
+
+    private void Awake()
+    {
+        trigger2D.onTriggerEnter2D += Trigger2D_OnTriggerEnter2D;
+    }
+
+    private void Trigger2D_OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

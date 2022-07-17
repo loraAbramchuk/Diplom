@@ -8,7 +8,7 @@ public class Killer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);
+           SceneManager.LoadScene(0);
         }
     }
 }
